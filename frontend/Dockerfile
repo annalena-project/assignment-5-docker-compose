@@ -1,3 +1,4 @@
+
 # Use Node.js 18 to build the frontend
 FROM node:18-alpine
 
@@ -9,6 +10,10 @@ COPY package*.json ./
 
 # Install dependencies
 RUN npm install
+
+# Accept build argument
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
 
 # Copy application files
 COPY . .
